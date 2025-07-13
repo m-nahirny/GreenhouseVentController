@@ -272,17 +272,6 @@ void app_main(void)
 
     ESP_LOGI(TAG, "Initializing SHT30");
 
-    // sht30.i2c_port = I2C_NUM_0;
-    // sht30.addr = SHT30_ADDRESS;
-    // if (sht30_init(&sht30) != ESP_OK)
-    // {
-    //     puts("Error initializing SHT30");
-    // }
-
-    // ESP_LOGI(TAG, "Getting temperature");
-    // temperature = sht30_get_temperature(&sht30, true);
-    // humidity = sht30_get_humidity(&sht30, false);
-
     sht30_init_add(i2c_bus, SHT30_ADDRESS_DEF, DISPLAY_LCD_PIXEL_CLOCK_HZ, MAX_WAIT_TIME);
     sht30_heater_control(&sht30, Heater_Disable);
 
