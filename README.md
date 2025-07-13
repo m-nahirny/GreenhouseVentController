@@ -49,3 +49,5 @@ The main complication is controlling the relays. In order to preserve IO pins Ki
 Here is a diagram of how the relays are wired:
 
 ![alt text](https://github.com/m-nahirny/GreenhouseVentController/blob/main/images/KinconyKC868-A6.JPG?raw=true)
+
+I use two separate 12V power adapters to ensure that the any voltage drop caused by the actuatos moving doesn't affect the controller but I'm sure you could use a singe (heftier) 12V poer supply thatn the small AC adapters I had lying around.
