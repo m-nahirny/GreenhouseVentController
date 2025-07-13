@@ -4,7 +4,7 @@
 # _Greenhouse Vent Controller_
 
 
-I have a large greenhouse with a fan and vents that are operated by a mechanical thermostat. The greenhouse also as pneumatic vents on the roof. However during the summer these are not sufficient. Also the existing vents are only activated when the fan motor is on as they are on the same circuit. Therefore I added extra vents on opposite walls of the greenhouse to allow extra venting and a cross breize. These are manually operated vents to which I added actuators and a controller to open and close the actuators.
+I have a large greenhouse with a fan and vents that are operated by a mechanical thermostat. The greenhouse also has pneumatic vents on the roof. However during the summer these are not sufficient. Also the existing vents are only activated when the fan motor is on as they are on the same circuit. Therefore I added extra vents on opposite walls of the greenhouse to allow extra venting and a cross breize. These are manually operated vents to which I added actuators and a controller to open and close the actuators.
 
 
 
@@ -26,7 +26,7 @@ The temperature and humidity sensor is a SHT30 sensor that I got on Ali Express 
 
 ## Software
 
-This project was built using the Espressif ESP-IDT development platform. I use this rather than Arduino because it gives me more granular control of the ESP32. I have a number of other projects, some of which needed features I could not find supported in Arduino and at this point I've got past the ESP-IDF learning curve so it's a more natural environment for me. I can appreciate that this is not everyne's preference but I'm sure the code could be proted to Arduino.
+This project was built using the Espressif ESP-IDT development platform. I use this rather than Arduino because it gives me more granular control of the ESP32. I have a number of other projects, some of which needed features I could not find supported in Arduino and at this point I've got past the ESP-IDF learning curve so it's a more natural environment for me. I can appreciate that this is not everyne's preference but I'm sure the code could be ported to Arduino.
 
 ## Features
 
@@ -50,4 +50,4 @@ Here is a diagram of how the relays are wired:
 
 ![alt text](https://github.com/m-nahirny/GreenhouseVentController/blob/main/images/KinconyKC868-A6.JPG?raw=true)
 
-I use two separate 12V power adapters to ensure that the any voltage drop caused by the actuatos moving doesn't affect the controller but I'm sure you could use a singe (heftier) 12V poer supply thatn the small AC adapters I had lying around.
+I use two separate 12V power adapters to ensure that the any voltage drop caused by the actuators moving doesn't affect the controller but I'm sure you could use a singe (heftier) 12V power supply than the small AC adapters I had lying around.
