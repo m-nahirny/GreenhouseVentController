@@ -32,7 +32,7 @@ This project was built using the Espressif ESP-IDT development platform. I use t
 
 The main feature of the project is the ability to open and close the vents based on threshold temperatures. I have set a separate open and close temperature threshold to provide some hysteresis. By default these are 28 degrees C to open and 25 degrees C to close. When the controller is powered on it closes the actuator so it is in a known state. In order to reverse the voltage polarity to change the direction of the actuator three relays needed to be used. Two of these actually control the voltage polarity and one disables the input voltage to prevent short-circuiting the power supply if the relays operate at different rates. this is the circuit diagram for the relay connections:
 
-![alt text](https://github.com/m-nahirny/GreenhouseVentController/images/RelayCircuit.jpg?raw=true)
+![alt text](https://github.com/m-nahirny/GreenhouseVentController/blob/main/images/RelayCircuit.JPG?raw=true)
 
 In addition the controller sends ESP Now messages to a gateway with the current temperature, humidity and state of the vents.
 
@@ -48,4 +48,4 @@ The main complication is controlling the relays. In order to preserve IO pins Ki
 
 Here is a diagram of how the relays are wired:
 
-![alt text](https://github.com/m-nahirny/GreenhouseVentController/images/KinconyKC866-A6.jpg?raw=true)
+![alt text](https://github.com/m-nahirny/GreenhouseVentController/blob/main/images/KinconyKC868-A6.JPG?raw=true)
