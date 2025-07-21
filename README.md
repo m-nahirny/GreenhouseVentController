@@ -26,11 +26,11 @@ The temperature and humidity sensor is a SHT30 sensor that I got on Ali Express 
 
 ## Software
 
-This project was built using the Espressif ESP-IDT development platform. I use this rather than Arduino because it gives me more granular control of the ESP32. I have a number of other projects, some of which needed features I could not find supported in Arduino and at this point I've got past the ESP-IDF learning curve so it's a more natural environment for me. I can appreciate that this is not everyne's preference but I'm sure the code could be ported to Arduino.
+This project was built using the Espressif ESP-IDT development platform. I use this rather than Arduino because it gives me more granular control of the ESP32. I have a number of other projects, some of which needed features I could not find supported in Arduino and at this point I've got past the ESP-IDF learning curve so it's a more natural environment for me. I can appreciate that this is not everyone's preference but I'm sure the code could be ported to Arduino.
 
 ## Features
 
-The main feature of the project is the ability to open and close the vents based on threshold temperatures. I have set a separate open and close temperature threshold to provide some hysteresis. By default these are 28 degrees C to open and 25 degrees C to close. When the controller is powered on it closes the actuator so it is in a known state. In order to reverse the voltage polarity to change the direction of the actuator three relays needed to be used. Two of these actually control the voltage polarity and one disables the input voltage to prevent short-circuiting the power supply if the relays operate at different rates. this is the circuit diagram for the relay connections:
+The main feature of the project is the ability to open and close the vents based on threshold temperatures. I have set a separate open and close temperature threshold to provide some hysteresis. By default these are 28 degrees C to open and 25 degrees C to close. When the controller is powered on it closes the actuator so it is in a known state. In order to reverse the voltage polarity to change the direction of the actuator three relays needed to be used. Two of these actually control the voltage polarity and one disables the input voltage to prevent short-circuiting the power supply if the relays operate at different rates. This is the circuit diagram for the relay connections:
 
 ![alt text](https://github.com/m-nahirny/GreenhouseVentController/blob/main/images/RelayCircuit.JPG?raw=true)
 
@@ -40,7 +40,7 @@ There is a SSD1306 OLED display that also displays the temperature, humidity and
 
 ## Algorithm
 
-The software is fairly simple - initialze the system and in a loop check the temperature, decide if the vents need to be opened or closed, display the state, send the state using ESP Now, wait 5 seconds and loop.
+The software is fairly simple - initialize the system and in a loop check the temperature, decide if the vents need to be opened or closed, display the state, send the state using ESP Now, wait 5 seconds and loop.
 
 The main complication is controlling the relays. In order to preserve IO pins Kincony uses the I2C addressable IO expander PFC8574. To set the relay positions all relays are set at once by writing to a register in the PFC8574. Inputs are handled the same way. The lowest three bits control the three relays. Bit 0 is relay K1 in the circuit diagram, bit 1 is K2 and bit 3 is K3. To extend the actuator, the motor is disabled by sending 0x00 then the motor is enabled with forward direction by sending 0x01. To retract the actuator 0x06 is send to set the direction and disable the motor then 0x07 is sent to set the direction and enable the motor. 
 
